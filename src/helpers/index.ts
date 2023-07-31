@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const SECRET = 'IDINAHUI';
+const SECRET = ''; //WRITE SOME SECRET STRING
 
 export const random = () => crypto.randomBytes(128).toString('base64');
 export const authentication = (salt: string, password: string) => {
