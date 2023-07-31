@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const SECRET = ''; //WRITE SOME SECRET STRING
+const SECRET = process.end.SECRET; //WRITE SOME SECRET STRING
 
 export const random = () => crypto.randomBytes(128).toString('base64');
 export const authentication = (salt: string, password: string) => {
