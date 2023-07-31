@@ -4,6 +4,9 @@ import bodyParser from 'body-parser';
 import cookieParser from 'cookie-parser';
 import compression from 'compression';
 import cors from 'cors';
+
+import router from './router';
+
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 
@@ -27,8 +30,11 @@ server.listen(8080, () => {
     console.log('Server running on http://localhost:8080/');
 });
 
-const MONGO_URL = process.env.MONGO_URL;
+const MONGO_URL =
+    'mongodb+srv://dimitar:dagodyxa6@cluster1.e4r7gid.mongodb.net/?retryWrites=true&w=majority';
 
 mongoose.Promise = Promise;
 mongoose.connect(MONGO_URL);
 mongoose.connection.on('error', (error: Error) => console.log(error));
+
+app.use('/', router());
